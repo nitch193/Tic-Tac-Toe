@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Comic Neue", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+:root {
+  --board-size: 300px;
+}
+html {
+  background-color: #12283a;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.heading {
+  text-align: center;
+  display: inline-block;
+  padding-top: 20px;
+  width: 100vw;
+  height: calc(var(--board-size) * 0.5);
+  background-color: #5db4f7;
+  color: white;
+  font-size: calc(var(--board-size) * 0.3);
+}
+.message {
+  display: none;
+}
+.result-meessage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: hsla(0, 3%, 6%, 0.7);
+  color: white;
+  font-size: calc(var(--board-size) * 0.15);
+}
+button {
+  width: calc(var(--board-size) * 0.4);
+  height: calc(var(--board-size) * 0.2);
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-size: calc(var(--board-size) * 0.08);
+  border: black 2px thick;
+  border-radius: 8px;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+#game-board {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  width: var(--board-size);
+  height: var(--board-size);
+}
+#game-board :nth-child(3n + 1) {
+  border-left: none;
+}
+#game-board :nth-child(1),
+#game-board :nth-child(2),
+#game-board :nth-child(3) {
+  border-top: none;
+}
+.cell {
+  border: rgb(255, 255, 255) 4px solid;
+  width: calc(var(--board-size) / 3);
+  height: calc(var(--board-size) / 3);
+  border-right: none;
+  border-bottom: none;
+  text-align: center;
+  font-size: calc(var(--board-size) / 3 * 0.9);
+  cursor: pointer;
+  color: white;
+}
+
+.clicked {
+  cursor: not-allowed;
+}
